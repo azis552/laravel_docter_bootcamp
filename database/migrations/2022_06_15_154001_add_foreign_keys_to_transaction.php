@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('appointment', function (Blueprint $table) {
-            $table->id();
-          
-            $table->enum('level',[1,2,3]);
-            $table->string('date');
-            $table->string('time');
-            $table->enum('status',[1,2]);
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('transaction', function (Blueprint $table) {
+            $table->foreignId('appointment_id','fk_transaction_to_appointment')->references('id')->on('appointment')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -32,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointment');
+        Schema::table('transaction', function (Blueprint $table) {
+            //
+        });
     }
 };
