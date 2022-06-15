@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('fee_dokter');
             $table->string('fee_specialist');
             $table->string('fee_hospital');
-            $table->string('fee_dokter');
             $table->string('sub_total');
             $table->string('vat');
             $table->string('total');
