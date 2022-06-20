@@ -34,6 +34,6 @@ class Dokter extends Model
     }
     public function appointment()
     {
-        return $this->hasOne('App\Models\Operational\Appointment','dokter_id');
+        return $this->hasMany('App\Models\Operational\Appointment','dokter_id');
     }
 }
